@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#c9b8f0" />
+  <title>Famly — your family's cozy corner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-theme="pixel-pastel">
+
+  <!-- ═══════════ WELCOME / ONBOARDING ═══════════ -->
+  <section id="screen-welcome" class="screen active">
+    <div class="welcome-wrap">
+      <div class="welcome-clouds" aria-hidden="true">
+        <span class="cloud c1">☁️</span><span class="cloud c2">☁️</span>
+        <span class="cloud c3">🌸</span><span class="cloud c4">⭐</span>
+        <span class="cloud c5">☁️</span><span class="cloud c6">🎈</span>
+      </div>
+      <div class="logo-block">
+        <div class="logo-mark">🏡</div>
+        <h1 class="logo-text">Famly</h1>
+        <p class="tagline">your family's cozy little corner of the internet</p>
+      </div>
+
+      <div id="welcome-step-1" class="welcome-card">
+        <button class="btn btn-primary btn-big" id="btn-goto-create">
+          <span class="btn-emoji">✨</span> Create a family room
+        </button>
+        <button class="btn btn-soft btn-big" id="btn-goto-join">
+          <span class="btn-emoji">🎟️</span> Join with a code
+        </button>
+        <p class="hint">One person creates the room, everyone else scans the QR. That's it! 💛</p>
+      </div>
+
+      <div id="welcome-step-profile" class="welcome-card hidden">
+        <h2 class="card-title" id="profile-title">Who's joining?</h2>
+
+        <label class="field-label">Pick your face</label>
+        <div class="avatar-grid" id="avatar-grid"></div>
+
+        <label class="field-label" for="input-name">Your name</label>
+        <input id="input-name" class="input" type="text" maxlength="20" placeholder="e.g. Mom, Rohan, Grandpa Ji…" autocomplete="off" />
+
+        <div id="create-extra">
+          <label class="field-label" for="input-family">Family room name <span class="optional">(optional)</span></label>
+          <input id="input-family" class="input" type="text" maxlength="24" placeholder="e.g. The Sharma Family" autocomplete="off" />
+        </div>
+
+        <div id="join-extra" class="hidden">
+          <label class="field-label" for="input-code">Room code</label>
+          <input id="input-code" class="input input-code" type="text" maxlength="6" placeholder="ABC123" autocomplete="off" autocapitalize="characters" />
+        </div>
+
+        <button class="btn btn-primary btn-big" id="btn-enter">Let's go! 🚀</button>
+        <button class="btn btn-ghost" id="btn-back">← back</button>
+        <p class="form-error hidden" id="form-error"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ MAIN APP ═══════════ -->
+  <section id="screen-app" class="screen">
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="topbar-logo">🏡</span>
+        <div class="topbar-titles">
+          <strong id="room-title">Our Family</strong>
+          <button class="room-code-chip" id="chip-code" title="Copy room code">···</button>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button class="icon-btn" id="btn-invite" title="Invite family (QR)">📲</button>
+        <button class="icon-btn" id="btn-theme" title="Change theme">🎨</button>
+      </div>
+    </header>
+
+    <!-- current champion ribbon -->
+    <div class="champ-ribbon hidden" id="champ-ribbon"></div>
+
+    <main class="panes">
+      <!-- ── CHAT ── -->
+      <div class="pane active" id="pane-chat">
+        <div class="chat-scroll" id="chat-scroll"></div>
+        <form class="chat-inputbar" id="chat-form">
+          <label class="icon-btn attach-btn" for="input-photo" title="Send a photo">🖼️
+            <input type="file" id="input-photo" accept="image/*" hidden />
+          </label>
+          <input class="input chat-input" id="chat-input" type="text" placeholder="Say something sweet…" maxlength="800" autocomplete="off" />
+          <button class="btn btn-primary send-btn" type="submit" title="Send">➤</button>
+        </form>
+      </div>
+
+      <!-- ── GAMES ── -->
+      <div class="pane" id="pane-games">
+        <div id="games-home">
+          <h2 class="pane-title">Party games <span class="wiggle">🎉</span></h2>
+          <p class="pane-sub">Pick a game — everyone gets invited to join in.</p>
+          <div class="game-cards">
+            <button class="game-card" data-game="wordle">
+              <div class="game-card-art art-wordle"><span>W</span><span class="g2">O</span><span class="g3">R</span><span>D</span><span class="g2">!</span></div>
+              <div class="game-card-body">
+                <strong>Wordle Race</strong>
+                <p>Same secret word, six tries. Fastest brain wins big.</p>
+              </div>
+              <span class="game-card-go">Play →</span>
+            </button>
+            <button class="game-card" data-game="flags">
+              <div class="game-card-art art-flags">🚩🌍</div>
+              <div class="game-card-body">
+                <strong>Flag Guesser</strong>
+                <p>Whose flag is that? Quick fingers earn speed bonuses.</p>
+              </div>
+              <span class="game-card-go">Play →</span>
+            </button>
+            <button class="game-card" data-game="quiz">
+              <div class="game-card-art art-quiz">🧠💬</div>
+              <div class="game-card-body">
+                <strong>Quote &amp; Trivia Quiz</strong>
+                <p>"Who said it?" and family trivia. Prove you know stuff.</p>
+              </div>
+              <span class="game-card-go">Play →</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="game-lobby" class="hidden"></div>
+        <div id="game-play" class="hidden"></div>
+      </div>
+
+      <!-- ── FAMILY / LEADERBOARD ── -->
+      <div class="pane" id="pane-family">
+        <h2 class="pane-title">Family leaderboard <span class="wiggle">👑</span></h2>
+        <p class="pane-sub">All-time points from every game this gathering.</p>
+        <div id="leaderboard"></div>
+        <div class="invite-inline">
+          <p>Missing someone?</p>
+          <button class="btn btn-soft" id="btn-invite-2">📲 Show invite QR</button>
+        </div>
+      </div>
+    </main>
+
+    <nav class="tabbar">
+      <button class="tab active" data-pane="chat"><span class="tab-emoji">💬</span><span>Chat</span><i class="tab-dot hidden" id="dot-chat"></i></button>
+      <button class="tab" data-pane="games"><span class="tab-emoji">🎮</span><span>Games</span><i class="tab-dot hidden" id="dot-games"></i></button>
+      <button class="tab" data-pane="family"><span class="tab-emoji">👨‍👩‍👧‍👦</span><span>Family</span></button>
+    </nav>
+  </section>
+
+  <!-- ═══════════ MODALS ═══════════ -->
+  <div class="modal-backdrop hidden" id="modal-backdrop"></div>
+
+  <div class="modal hidden" id="modal-invite">
+    <button class="modal-close" data-close>✕</button>
+    <h3 class="modal-title">Bring the family in! 🤗</h3>
+    <div class="qr-frame"><img id="qr-img" alt="QR code to join the room" /></div>
+    <p class="invite-code-label">or enter this code:</p>
+    <div class="invite-code" id="invite-code">······</div>
+    <button class="btn btn-primary" id="btn-copy-link">🔗 Copy invite link</button>
+    <p class="hint">Point a phone camera at the QR — it opens the room with the code pre-filled.</p>
+  </div>
+
+  <div class="modal hidden" id="modal-theme">
+    <button class="modal-close" data-close>✕</button>
+    <h3 class="modal-title">Pick your vibe 🎨</h3>
+    <div class="theme-grid">
+      <button class="theme-opt" data-set-theme="pixel-pastel">
+        <span class="theme-swatch sw-pixel"></span>
+        <strong>Pixel Pastel</strong><small>dreamy retro, chunky &amp; cute</small>
+      </button>
+      <button class="theme-opt" data-set-theme="cupertino">
+        <span class="theme-swatch sw-cupertino"></span>
+        <strong>Cupertino</strong><small>clean, frosted, Apple-calm</small>
+      </button>
+      <button class="theme-opt" data-set-theme="material-you">
+        <span class="theme-swatch sw-material"></span>
+        <strong>Material You</strong><small>soft tonal, rounded, playful</small>
+      </button>
+      <button class="theme-opt" data-set-theme="midnight">
+        <span class="theme-swatch sw-midnight"></span>
+        <strong>Midnight Dream</strong><small>cozy dark with pastel glow</small>
+      </button>
+    </div>
+  </div>
+
+  <!-- winner celebration overlay -->
+  <div class="celebrate hidden" id="celebrate">
+    <canvas id="confetti-canvas"></canvas>
+    <div class="celebrate-card" id="celebrate-card"></div>
+  </div>
+
+  <div class="toast-stack" id="toast-stack"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
