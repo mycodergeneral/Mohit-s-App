@@ -2,16 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#c9b8f0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#f7f4ef" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Famly" />
   <title>Famly — your family's cozy corner</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/icons/icon-180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Press+Start+2P&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body data-theme="pixel-pastel">
+<body data-theme="saffron">
 
   <!-- ═══════════ WELCOME / ONBOARDING ═══════════ -->
   <section id="screen-welcome" class="screen active">
@@ -168,13 +174,13 @@
     <button class="modal-close" data-close>✕</button>
     <h3 class="modal-title">Pick your vibe 🎨</h3>
     <div class="theme-grid">
+      <button class="theme-opt" data-set-theme="saffron">
+        <span class="theme-swatch sw-saffron"></span>
+        <strong>Saffron</strong><small>Apple-calm with saffron warmth</small>
+      </button>
       <button class="theme-opt" data-set-theme="pixel-pastel">
         <span class="theme-swatch sw-pixel"></span>
         <strong>Pixel Pastel</strong><small>dreamy retro, chunky &amp; cute</small>
-      </button>
-      <button class="theme-opt" data-set-theme="cupertino">
-        <span class="theme-swatch sw-cupertino"></span>
-        <strong>Cupertino</strong><small>clean, frosted, Apple-calm</small>
       </button>
       <button class="theme-opt" data-set-theme="material-you">
         <span class="theme-swatch sw-material"></span>

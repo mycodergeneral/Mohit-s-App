@@ -33,14 +33,15 @@
   const socket = io();
 
   /* ═══════════ THEMES ═══════════ */
-  const THEMES = ['pixel-pastel', 'cupertino', 'material-you', 'midnight'];
+  const THEMES = ['saffron', 'pixel-pastel', 'material-you', 'midnight'];
   function applyTheme(t) {
-    if (!THEMES.includes(t)) t = 'pixel-pastel';
+    if (t === 'cupertino') t = 'saffron'; // migrate the old theme name
+    if (!THEMES.includes(t)) t = 'saffron';
     document.body.dataset.theme = t;
     localStorage.setItem('famly-theme', t);
     $$('.theme-opt').forEach((b) => b.classList.toggle('on', b.dataset.setTheme === t));
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = getComputedStyle(document.body).getPropertyValue('--bg-solid').trim() || '#c9b8f0';
+    if (meta) meta.content = getComputedStyle(document.body).getPropertyValue('--bg-solid').trim() || '#f7f4ef';
   }
   applyTheme(localStorage.getItem('famly-theme'));
   $$('.theme-opt').forEach((b) =>
@@ -876,4 +877,11 @@
     const canvas = $('#confetti-canvas');
     canvas.width = innerWidth; canvas.height = innerHeight;
   });
+
+  /* ═══════════ PWA ═══════════ */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+  }
 })();

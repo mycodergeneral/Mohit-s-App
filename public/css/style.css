@@ -10,7 +10,7 @@
   --topbar-h: 60px;
 }
 
-/* ── THEME: Pixel Pastel (default) ── */
+/* ── THEME: Pixel Pastel ── */
 body[data-theme='pixel-pastel'] {
   --bg: linear-gradient(160deg, #e8ddff 0%, #ffe1ef 38%, #d7f3ea 72%, #dceaff 100%);
   --bg-solid: #ece4ff;
@@ -33,37 +33,37 @@ body[data-theme='pixel-pastel'] {
   --shadow: 4px 4px 0 rgba(59, 47, 91, 0.9);
   --shadow-sm: 3px 3px 0 rgba(59, 47, 91, 0.85);
   --shadow-soft: 0 10px 30px rgba(139, 108, 240, 0.18);
-  --font-body: 'Nunito', 'Segoe UI', sans-serif;
+  --font-body: 'Google Sans Flex', 'Nunito', 'Segoe UI', sans-serif;
   --font-display: 'Press Start 2P', monospace;
   --display-size-adjust: 0.62;
   --blur: none;
 }
 
-/* ── THEME: Cupertino ── */
-body[data-theme='cupertino'] {
-  --bg: linear-gradient(170deg, #eef3fb 0%, #f7f2fa 50%, #eef8f4 100%);
-  --bg-solid: #f2f2f7;
-  --surface: rgba(255, 255, 255, 0.82);
-  --surface-2: rgba(242, 242, 250, 0.9);
-  --surface-3: rgba(255, 255, 255, 0.65);
-  --text: #1c1c2e;
-  --text-dim: #8e8e9d;
-  --primary: #5aa2ff;
-  --primary-strong: #2f7ef7;
+/* ── THEME: Saffron (default) — Apple-calm with a warm saffron accent ── */
+body[data-theme='saffron'] {
+  --bg: linear-gradient(170deg, #faf7f2 0%, #fdf2e4 45%, #f4f5f7 100%);
+  --bg-solid: #f7f4ef;
+  --surface: rgba(255, 255, 255, 0.86);
+  --surface-2: rgba(246, 243, 238, 0.92);
+  --surface-3: rgba(255, 248, 238, 0.8);
+  --text: #1d1d1f;
+  --text-dim: #8e8a83;
+  --primary: #ff9933;
+  --primary-strong: #f07d12;
   --primary-text: #fff;
-  --accent: #66d4b1;
-  --accent-2: #ff9eb5;
-  --gold: #ffd166;
-  --danger: #ff6b7d;
+  --accent: #57c5a0;
+  --accent-2: #ffb765;
+  --gold: #ffcc66;
+  --danger: #ff5a52;
   --border-w: 1px;
-  --border-c: rgba(60, 60, 90, 0.14);
+  --border-c: rgba(60, 50, 30, 0.12);
   --radius: 20px;
   --radius-sm: 13px;
-  --shadow: 0 8px 24px rgba(50, 60, 100, 0.12);
-  --shadow-sm: 0 4px 14px rgba(50, 60, 100, 0.1);
-  --shadow-soft: 0 12px 36px rgba(50, 60, 100, 0.12);
-  --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Quicksand', 'Segoe UI', sans-serif;
-  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Quicksand', sans-serif;
+  --shadow: 0 8px 24px rgba(120, 80, 20, 0.1);
+  --shadow-sm: 0 4px 14px rgba(120, 80, 20, 0.08);
+  --shadow-soft: 0 12px 36px rgba(120, 80, 20, 0.12);
+  --font-body: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+  --font-display: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
   --display-size-adjust: 1;
   --blur: saturate(1.6) blur(18px);
 }
@@ -91,8 +91,8 @@ body[data-theme='material-you'] {
   --shadow: 0 3px 10px rgba(80, 55, 140, 0.14);
   --shadow-sm: 0 2px 6px rgba(80, 55, 140, 0.12);
   --shadow-soft: 0 10px 32px rgba(80, 55, 140, 0.14);
-  --font-body: 'Quicksand', 'Roboto', sans-serif;
-  --font-display: 'Quicksand', 'Roboto', sans-serif;
+  --font-body: 'Google Sans Flex', 'Quicksand', 'Roboto', sans-serif;
+  --font-display: 'Google Sans Flex', 'Quicksand', 'Roboto', sans-serif;
   --display-size-adjust: 1;
   --blur: none;
 }
@@ -120,7 +120,7 @@ body[data-theme='midnight'] {
   --shadow: 0 6px 22px rgba(0, 0, 0, 0.45), 0 0 22px rgba(163, 130, 255, 0.12);
   --shadow-sm: 0 3px 12px rgba(0, 0, 0, 0.4);
   --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(163, 130, 255, 0.14);
-  --font-body: 'Nunito', 'Segoe UI', sans-serif;
+  --font-body: 'Google Sans Flex', 'Nunito', 'Segoe UI', sans-serif;
   --font-display: 'Press Start 2P', monospace;
   --display-size-adjust: 0.62;
   --blur: none;
@@ -625,7 +625,7 @@ body[data-theme='cupertino'] .avatar-opt.selected { border: 3px solid var(--prim
 .theme-opt small { font-size: 11px; color: var(--text-dim); font-weight: 700; }
 .theme-swatch { width: 56px; height: 34px; border-radius: 8px; border: 2px solid rgba(0,0,0,0.2); }
 .sw-pixel { background: linear-gradient(120deg, #c9b8f0 30%, #ffd1e6 60%, #a8ecd5 100%); }
-.sw-cupertino { background: linear-gradient(120deg, #eef3fb 30%, #5aa2ff 100%); }
+.sw-saffron { background: linear-gradient(120deg, #faf7f2 25%, #ffb347 60%, #f07d12 100%); }
 .sw-material { background: linear-gradient(120deg, #ede4f8 30%, #9a7ce0 70%, #63cfae 100%); }
 .sw-midnight { background: linear-gradient(120deg, #241a44 40%, #b39dfc 90%); }
 
